@@ -1,0 +1,80 @@
+<template>
+  <label>이름 :</label>
+  <input type="text" v-model="result.name" placeholer="이름" /><br />
+  <label>나이 :</label>
+  <input type="text" v-model="result.age" placeholer="나이" /><br />
+  <label>성별 : </label>
+  <label>남성</label>
+  <input type="radio" name="gender" v-model="result.gender" value="male" />
+  <label>여성</label>
+  <input type="radio" name="gender" v-model="result.gender" value="female" />
+  <br />
+  <label>취미 :</label>
+  <span v-for="hobby in hobby_options" :key="hobby">
+    <label>{{ hobby }}</label>
+    <input type="checkbox" v-model="result.hobby" v-bind:value="hobby" /> </span
+  ><br />
+
+  <label>비번 : </label>
+  <input type="password" v-model="result.password" /><br />
+  <label>국가 :</label>
+  <select v-model="result.country">
+    <option v-for="country in country_options" :key="country">
+      {{ country }}
+    </option></select
+  ><br />
+
+  <label>날짜 : </label><br />
+  <input type="date" v-model="result.cdate"><br />
+  <label>시간 : </label><br />
+  <input type="time" v-model="result.ctime"><br />
+
+  <label>색깔 : </label><br />
+  <input type="color" v-model="result.ccolor"><br />
+  <label>범위 : </label><br />
+  <input type="range" v-model="result.crange" min="0" max="100"><br />
+
+  <div>
+    <h3>결과</h3>
+    <hr />
+    {{ result }}
+  </div>
+</template>
+
+<script>
+import { reactive } from "vue";
+
+export default {
+  setup() {
+    const name = "";
+    const age = 0;
+    const gender = "male";
+    const hobby = ["스포츠"];
+    const password = "";
+    const country = "한국";
+    const country_options = ["한국", "미국", "중국"];
+    const hobby_options = ["스포츠", "그림", "음악", "코딩"];
+    const cdate = "";
+    const ctime = ""
+    const ccolor = "#ffffff"
+    const crange = 0
+
+
+    const result = reactive({
+      name,
+      age,
+      gender,
+      hobby,
+      password,
+      country, cdate, ctime, ccolor, crange
+    });
+
+    return {
+      result,
+      country_options,
+      hobby_options,
+      cdate, ctime, ccolor, crange
+    };
+  },
+};
+</script>
