@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "custom_table": "file:",
     "vue": "^3.5.10"
   },
   "devDependencies": {
